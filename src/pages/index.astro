@@ -5,10 +5,7 @@ import Card from "@components/CommonCard.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@consts";
 
 const allPosts = await getCollection("posts");
-allPosts.sort(
-  (a, b) =>
-    new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf(),
-);
+allPosts.sort((a, b) => a.data.title.localeCompare(b.data.title));
 
 const postsPerPage = 5;
 const firstPagePosts = allPosts.slice(0, postsPerPage);
