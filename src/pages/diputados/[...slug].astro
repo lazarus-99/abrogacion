@@ -4,32 +4,32 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import OptimizedCover from "@components/OptimizedPicture.astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("posts");
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: post,
+  const deputies = await getCollection("diputados");
+  return deputies.map((deputy) => ({
+    params: { slug: deputy.slug },
+    props: deputy,
   }));
 }
 
-const post = Astro.props;
+const deputy = Astro.props;
 ---
 
-<BaseLayout title={post.data.title}>
+<BaseLayout title={deputy.data.title}>
   <main>
     <article class="prose mx-auto dark:prose-invert">
       <div class="prose-h1 text-center">
-        <h1>{post.data.title}</h1>
+        <h1>{deputy.data.title}</h1>
       </div>
       <div>
         {
-          post.data.cover && (
-            <OptimizedCover src={post.data.cover} alt={post.data.title} />
+          deputy.data.cover && (
+            <OptimizedCover src={deputy.data.cover} alt={deputy.data.title} />
           )
         }
       </div>
       <div>
         <strong>Partido Político:</strong>
-        {post.data.party}
+        {deputy.data.party}
       </div>
       <div>
         <span

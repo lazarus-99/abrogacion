@@ -4,17 +4,14 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Card from "@components/CommonCard.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@consts";
 
-const allPosts = await getCollection("posts");
-allPosts.sort((a, b) => a.data.title.localeCompare(b.data.title));
-
-const postsPerPage = 5;
-const firstPagePosts = allPosts.slice(0, postsPerPage);
+const deputies = await getCollection("diputados");
+deputies.sort((a, b) => a.data.title.localeCompare(b.data.title));
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <div class="grid grid-cols-1">
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {firstPagePosts.map((post) => <Card post={post} />)}
+      {deputies.map((deputy) => <Card deputy={deputy} />)}
     </div>
   </div>
 </BaseLayout>

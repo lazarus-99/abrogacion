@@ -3,20 +3,20 @@ import type { CollectionEntry } from "astro:content";
 import OptimizedCover from "@components/OptimizedPicture.astro";
 
 interface Props {
-  post: CollectionEntry<"posts">;
+  deputy: CollectionEntry<"diputados">;
 }
 
-const { post } = Astro.props;
+const { deputy } = Astro.props;
 ---
 
 <div
   class="relative overflow-hidden rounded-xl bg-white transition-transform duration-500 hover:-translate-y-1 hover:scale-105 dark:bg-neutral-900"
 >
-  <a href={`/posts/${post.slug}/`} class="block">
-    <OptimizedCover src={post.data.cover} alt={post.data.title} />
+  <a href={`/diputados/${deputy.slug}/`} class="block">
+    <OptimizedCover src={deputy.data.cover} alt={deputy.data.title} />
     <div class="absolute bottom-0 end-0 start-0 bg-gradient-to-t p-5 md:p-6">
       <div class="mt-16 flex items-center gap-4 text-xs text-white"></div>
-      <h3 class="mt-2 text-lg font-bold text-white">{post.data.title}</h3>
+      <h3 class="mt-2 text-lg font-bold text-white">{deputy.data.title}</h3>
     </div>
   </a>
 </div>
