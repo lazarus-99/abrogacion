@@ -12,10 +12,9 @@ export async function getStaticPaths() {
 }
 
 const post = Astro.props;
-const { Content } = await post.render();
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description}>
+<BaseLayout title={post.data.title}>
   <main>
     <article class="prose mx-auto dark:prose-invert">
       <div class="prose-h1 text-center">
@@ -29,9 +28,10 @@ const { Content } = await post.render();
         }
       </div>
       <div>
-        <Content />
+        <strong>Partido Político:</strong>
+        {post.data.party}
       </div>
-      <div class="prose-a:no-underline">
+      <div>
         <span
           class="mb-2 mr-2 inline-block rounded-full bg-neutral-200 px-3 py-1 text-sm hover:bg-neutral-500 dark:bg-neutral-600"
         >
