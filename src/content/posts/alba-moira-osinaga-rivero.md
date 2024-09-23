@@ -1,6 +1,5 @@
 ---
 title: Alba Moira Osinaga Rivero
-slug: using-mdx
 party: MAS
 category: A favor
 isSupportive: false
