@@ -4,6 +4,7 @@ const posts = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
+    party: z.string(),
     cover: z.string(),
     category: z.string(),
     isSupportive: z.boolean(),
