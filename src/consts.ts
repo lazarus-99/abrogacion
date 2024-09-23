@@ -2,8 +2,8 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 // Base Page Metadata, src/layouts/BaseLayout.astro
-export const BRAND_NAME = "AstroVerse";
-export const SITE_TITLE = "AstroVerse";
+export const BRAND_NAME = "Abrogación";
+export const SITE_TITLE = "Abrogación";
 export const SITE_DESCRIPTION = "An Astro Theme for Visual Storytelling";
 
 // Tags Page Metadata, src/pages/tags/index.astro
