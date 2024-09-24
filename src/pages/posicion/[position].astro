@@ -1,18 +1,19 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import PostCard from "@components/CommonCard.astro";
+import { DEPUTIES } from "@consts";
 
 export async function getStaticPaths() {
-  const deputies = await getCollection("diputados");
+  const isInFavor = DEPUTIES.filter((d) => d.isSupportive);
+  const isAgainst = DEPUTIES.filter((d) => !d.isSupportive);
   return [
     {
       params: { position: "a-favor" },
-      props: { deputies },
+      props: { deputies: isInFavor },
     },
     {
       params: { position: "en-contra" },
-      props: { deputies },
+      props: { deputies: isAgainst },
     },
   ];
 }
