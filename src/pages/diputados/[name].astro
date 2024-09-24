@@ -1,17 +1,14 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import OptimizedCover from "@components/OptimizedPicture.astro";
+
 import { DEPUTIES } from "@consts";
+import { getUrlFromName } from "@utils/getUrlFromName";
 
 export async function getStaticPaths() {
   return DEPUTIES.map((deputy) => ({
     params: {
-      // Normalize name for URL: María Álvarez -> maria-alvarez
-      name: deputy.name
-        .normalize("NFD")
-        .replace(/\p{Diacritic}/gu, "")
-        .replaceAll(" ", "-")
-        .toLowerCase(),
+      name: getUrlFromName(deputy.name),
     },
     props: deputy,
   }));
