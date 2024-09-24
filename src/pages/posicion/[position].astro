@@ -21,7 +21,10 @@ export async function getStaticPaths() {
 const { deputies } = Astro.props;
 ---
 
-<BaseLayout title="Hihi" description="TODO">
+<BaseLayout
+  title="Posición frente a la abrogación"
+  description="Posición frente a la abrogación"
+>
   <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
     {deputies.map((deputy) => <PostCard deputy={deputy} />)}
   </div>
