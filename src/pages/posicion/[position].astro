@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import PostCard from "@components/CommonCard.astro";
+
+export async function getStaticPaths() {
+  const deputies = await getCollection("diputados");
+  return [
+    {
+      params: { position: "a-favor" },
+      props: { deputies },
+    },
+    {
+      params: { position: "en-contra" },
+      props: { deputies },
+    },
+  ];
+}
+
+const { deputies } = Astro.props;
+---
+
+<BaseLayout title="Hihi" description="TODO">
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    {deputies.map((deputy) => <PostCard deputy={deputy} />)}
+  </div>
+</BaseLayout>
