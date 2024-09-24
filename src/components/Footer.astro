@@ -1,7 +1,5 @@
 ---
-import { Icon } from "astro-icon/components";
-import Link from "@components/Links.astro";
-import { BRAND_NAME, FooterLinks, SocialLinks } from "@consts";
+import { SITE_TITLE } from "@consts";
 const today = new Date();
 ---
 
@@ -11,7 +9,7 @@ const today = new Date();
       <a
         class="flex-none text-sm text-neutral-500 hover:text-neutral-800 dark:text-neutral-500 dark:hover:text-neutral-200"
         href="/"
-        aria-label="Brand">{BRAND_NAME} &copy; {today.getFullYear()}</a
+        aria-label="Brand">{SITE_TITLE} &copy; {today.getFullYear()}</a
       >
     </div>
   </nav>
