@@ -2,6 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import OptimizedCover from "@components/OptimizedPicture.astro";
 
+import { Icon } from "astro-icon/components";
 import { DEPUTIES } from "@consts";
 import { getUrlFromName } from "@utils/getUrlFromName";
 
@@ -16,6 +17,23 @@ export async function getStaticPaths() {
 
 const deputy = Astro.props;
 const spanColor = deputy.isSupportive ? "bg-lime-500" : "bg-red-600 text-white";
+const SocialLinks = [
+  {
+    href: "https://facebook.com",
+    icon: "tabler:brand-facebook",
+    label: "Facebook",
+  },
+  {
+    href: "https://twitter.com",
+    icon: "tabler:brand-x",
+    label: "Twitter",
+  },
+  {
+    href: "https://google.com",
+    icon: "tabler:home",
+    label: "Sitio Web Personal",
+  },
+];
 ---
 
 <BaseLayout title={deputy.name}>
@@ -31,12 +49,29 @@ const spanColor = deputy.isSupportive ? "bg-lime-500" : "bg-red-600 text-white";
         <strong>Partido Político:</strong>
         {deputy.party}
       </div>
-      <div class="flex justify-center">
+      <div class="flex flex-row justify-center">
         <span
           class={`mb-2 mr-2 inline-block rounded-full px-6 py-4 text-xl uppercase ${spanColor}`}
         >
           {deputy.isSupportive ? "A favor" : "En contra"}
         </span>
+      </div>
+      <div class="flex flex-row justify-center">
+        {
+          SocialLinks.map((link) => (
+            <button
+              type="button"
+              class="relative inline-flex h-12 w-12 items-center gap-x-2 bg-white px-4 py-3 text-neutral-500 hover:text-neutral-800 disabled:pointer-events-none disabled:opacity-50 dark:bg-neutral-900 dark:text-neutral-500 dark:hover:bg-neutral-900 dark:hover:text-neutral-200"
+            >
+              <a
+                href={link.href}
+                class="absolute inset-0 z-10"
+                aria-label={link.label}
+              />
+              <Icon name={link.icon} class="icon-base" />
+            </button>
+          ))
+        }
       </div>
     </article>
   </main>
