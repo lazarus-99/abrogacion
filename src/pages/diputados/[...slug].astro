@@ -12,6 +12,9 @@ export async function getStaticPaths() {
 }
 
 const deputy = Astro.props;
+const spanColor = deputy.data.isSupportive
+  ? "bg-lime-500"
+  : "bg-red-600 text-white";
 ---
 
 <BaseLayout title={deputy.data.title}>
@@ -31,11 +34,11 @@ const deputy = Astro.props;
         <strong>Partido Político:</strong>
         {deputy.data.party}
       </div>
-      <div>
+      <div class="flex justify-center">
         <span
-          class="mb-2 mr-2 inline-block rounded-full bg-neutral-200 px-3 py-1 text-sm hover:bg-neutral-500 dark:bg-neutral-600"
+          class={`mb-2 mr-2 inline-block rounded-full px-6 py-4 text-xl uppercase ${spanColor}`}
         >
-          A FAVOR
+          {deputy.data.isSupportive ? "A favor" : "En contra"}
         </span>
       </div>
     </article>
