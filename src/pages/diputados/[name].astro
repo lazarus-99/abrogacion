@@ -1,44 +1,44 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import OptimizedCover from "@components/OptimizedPicture.astro";
+import { DEPUTIES } from "@consts";
 
 export async function getStaticPaths() {
-  const deputies = await getCollection("diputados");
-  return deputies.map((deputy) => ({
-    params: { slug: deputy.slug },
+  return DEPUTIES.map((deputy) => ({
+    params: {
+      // Normalize name for URL: María Álvarez -> maria-alvarez
+      name: deputy.name
+        .normalize("NFD")
+        .replace(/\p{Diacritic}/gu, "")
+        .replaceAll(" ", "-")
+        .toLowerCase(),
+    },
     props: deputy,
   }));
 }
 
 const deputy = Astro.props;
-const spanColor = deputy.data.isSupportive
-  ? "bg-lime-500"
-  : "bg-red-600 text-white";
+const spanColor = deputy.isSupportive ? "bg-lime-500" : "bg-red-600 text-white";
 ---
 
-<BaseLayout title={deputy.data.title}>
+<BaseLayout title={deputy.name}>
   <main>
     <article class="prose mx-auto dark:prose-invert">
       <div class="prose-h1 text-center">
-        <h1>{deputy.data.title}</h1>
+        <h1>{deputy.name}</h1>
       </div>
       <div>
-        {
-          deputy.data.cover && (
-            <OptimizedCover src={deputy.data.cover} alt={deputy.data.title} />
-          )
-        }
+        {deputy.img && <OptimizedCover src={deputy.img} alt={deputy.name} />}
       </div>
       <div>
         <strong>Partido Político:</strong>
-        {deputy.data.party}
+        {deputy.party}
       </div>
       <div class="flex justify-center">
         <span
           class={`mb-2 mr-2 inline-block rounded-full px-6 py-4 text-xl uppercase ${spanColor}`}
         >
-          {deputy.data.isSupportive ? "A favor" : "En contra"}
+          {deputy.isSupportive ? "A favor" : "En contra"}
         </span>
       </div>
     </article>
