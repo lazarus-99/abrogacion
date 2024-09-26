@@ -1,15 +1,16 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import Card from "@components/CommonCard.astro";
-import { DEPUTIES, SITE_TITLE, SITE_DESCRIPTION } from "@consts";
-
-DEPUTIES.sort((a, b) => a.name.localeCompare(b.name));
+import { SITE_TITLE, SITE_DESCRIPTION } from "@consts";
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <div class="grid grid-cols-1">
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {DEPUTIES.map((deputy) => <Card deputy={deputy} />)}
+  <div class="flex justify-center">
+    <div
+      class="flex h-64 w-96 flex-col justify-center rounded-md border-2 border-amber-600 px-16"
+    >
+      <h2 class="text-3xl">Bolivia</h2>
+      <div class="text-2xl">4 millones de hectáreas consumidas</div>
+      <a href="/abrogacion" class="pt-4">Abrogación</a>
     </div>
   </div>
 </BaseLayout>
