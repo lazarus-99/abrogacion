@@ -9,6 +9,7 @@
     "preview": "astro preview",
     "format": "prettier -w .",
     "get-csv": "./src/scripts/extract-diputados-data.sh",
+    "get-json": "npm run get-csv && node ./src/scripts/getDeputiesJson.js",
     "astro": "astro"
   },
   "dependencies": {

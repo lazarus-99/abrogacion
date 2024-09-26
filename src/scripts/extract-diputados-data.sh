@@ -2,7 +2,7 @@
 
 file='./src/data/diputados.csv'
 
-echo 'url,name,img,name_short,email,city,party,type_nominal,type,circunscription,comission,comity,official_charge,name,comision_charge' > $file
+echo 'url,name,img,name_short,email,city,party,type_nominal,type,circunscription,comission,comity,official_charge,uri,comision_charge' > $file
 
 cat ./src/data/diputados.raw | \
   rg -v '^<tr' | \
