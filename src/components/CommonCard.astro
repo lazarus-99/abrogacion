@@ -1,7 +1,6 @@
 ---
 import OptimizedCover from "@components/OptimizedPicture.astro";
 import { DEPUTIES } from "@consts";
-import { getUrlFromName } from "@utils/getUrlFromName";
 
 interface Props {
   deputy: (typeof DEPUTIES)[number];
@@ -13,7 +12,7 @@ const { deputy } = Astro.props;
 <div
   class="relative overflow-hidden rounded-xl bg-white transition-transform duration-500 hover:-translate-y-1 hover:scale-105 dark:bg-neutral-900"
 >
-  <a href={`/diputados/${getUrlFromName(deputy.name)}/`} class="block">
+  <a href={`/diputados/${deputy.uri}/`} class="block">
     <OptimizedCover src={deputy.img} alt={deputy.name} />
     <div class="absolute bottom-0 end-0 start-0 bg-gradient-to-t p-5 md:p-6">
       <div class="mt-16 flex items-center gap-4 text-xs text-white"></div>
