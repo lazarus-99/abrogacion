@@ -1,0 +1,15 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Card from "@components/CommonCard.astro";
+import { DEPUTIES, SITE_TITLE, SITE_DESCRIPTION } from "@consts";
+
+DEPUTIES.sort((a, b) => a.name.localeCompare(b.name));
+---
+
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <div class="grid grid-cols-1">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {DEPUTIES.map((deputy) => <Card deputy={deputy} />)}
+    </div>
+  </div>
+</BaseLayout>
