@@ -1,0 +1,15 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@consts";
+---
+
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <h2 class="text-xl font-bold">Leyes Incendiarias</h2>
+  <p>Bolivia cuenta con un paquete de leyes que promueve los incendios.</p>
+  <p>
+    Una propuesta del Senado propone abrogar algunas de estas leyes pero debe
+    ser aprobada por la Cámara de Diputados para tener efecto.
+  </p>
+  <p>Presentamos la posición de cada diputado respecto a dicha propuesta.</p>
+  <a href="/diputados">Diputados</a>
+</BaseLayout>
