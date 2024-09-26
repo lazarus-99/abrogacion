@@ -39,6 +39,9 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.13
         version: 0.5.13(tailwindcss@3.4.7)
+      convert-csv-to-json:
+        specifier: ^2.49.0
+        version: 2.49.0
       prettier:
         specifier: ^3.2.5
         version: 3.3.3
@@ -910,6 +913,9 @@ packages:
 
   confbox@0.1.7:
     resolution: {integrity: sha512-uJcB/FKZtBMCJpK8MQji6bJHgu1tixKPxRLeGkNzBoOZzpnZUJm0jm2/sBDWcuBx1dYgxV4JU+g5hmNxCyAmdA==}
+
+  convert-csv-to-json@2.49.0:
+    resolution: {integrity: sha512-jGpQ+bkhVwMG9FF3IsK624X7u2HjYFXdtkLAkLouaewgYK5OZdEHZIMKD7dt/bCMUjR/zwg0o1B0cKFZrB22iQ==}
 
   convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
@@ -3355,6 +3361,8 @@ snapshots:
   common-ancestor-path@1.0.1: {}
 
   confbox@0.1.7: {}
+
+  convert-csv-to-json@2.49.0: {}
 
   convert-source-map@2.0.0: {}
 
