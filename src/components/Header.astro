@@ -4,14 +4,16 @@ import { Icon } from "astro-icon/components";
 import { SITE_TITLE, HeaderLinks } from "@consts";
 ---
 
-<header class="z-50 flex w-full flex-wrap py-7 md:flex-nowrap md:justify-start">
+<header
+  class="z-50 flex w-full flex-wrap bg-black py-7 text-white md:flex-nowrap md:justify-start"
+>
   <nav
     class="relative mx-auto flex w-full max-w-7xl basis-full flex-wrap items-center px-4 md:grid md:grid-cols-12"
     aria-label="Global"
   >
     <div class="md:col-span-3">
       <a
-        class="flex-none text-xl font-semibold text-neutral-900 hover:text-neutral-600"
+        class="flex-none text-xl font-semibold"
         href="/"
         aria-label="Astroverse"
       >
@@ -25,7 +27,7 @@ import { SITE_TITLE, HeaderLinks } from "@consts";
       <div class="md:hidden">
         <button
           type="button"
-          class="hs-collapse-toggle flex size-[38px] items-center justify-center rounded-xl text-sm font-semibold text-black hover:bg-neutral-100 disabled:pointer-events-none disabled:opacity-50"
+          class="hs-collapse-toggle flex size-[38px] items-center justify-center rounded-xl text-sm font-semibold disabled:pointer-events-none disabled:opacity-50"
           data-hs-collapse="#navbar-collapse-with-animation"
           aria-controls="navbar-collapse-with-animation"
           aria-label="Toggle navigation"
@@ -53,7 +55,7 @@ import { SITE_TITLE, HeaderLinks } from "@consts";
           HeaderLinks.map((link) => (
             <Link
               href={link.href}
-              class="px-4 py-3 font-medium text-neutral-900 hover:text-neutral-600"
+              class="px-4 py-3 font-medium hover:text-black"
             >
               {link.title}
             </Link>
