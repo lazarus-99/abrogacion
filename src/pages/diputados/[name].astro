@@ -4,12 +4,11 @@ import OptimizedCover from "@components/OptimizedPicture.astro";
 
 import { Icon } from "astro-icon/components";
 import { DEPUTIES } from "@consts";
-import { getUrlFromName } from "@utils/getUrlFromName";
 
 export async function getStaticPaths() {
   return DEPUTIES.map((deputy) => ({
     params: {
-      name: getUrlFromName(deputy.name),
+      name: deputy.uri,
     },
     props: deputy,
   }));
