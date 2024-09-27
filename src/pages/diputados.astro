@@ -1,14 +1,23 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Card from "@components/CommonCard.astro";
+import P from "@components/P.astro";
+
 import { DEPUTIES, SITE_TITLE, SITE_DESCRIPTION } from "@consts";
 
 DEPUTIES.sort((a, b) => a.name.localeCompare(b.name));
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <div class="grid grid-cols-1">
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+  <h2 class="text-xl font-bold">Leyes Incendiarias</h2>
+  <P>Bolivia cuenta con un paquete de leyes que promueve los incendios.</P>
+  <P>
+    Una propuesta del Senado propone abrogar algunas de estas leyes pero debe
+    ser aprobada por la Cámara de Diputados para tener efecto.
+  </P>
+  <P>Presentamos la posición de cada diputado respecto a dicha propuesta.</P>
+  <div class="mt-8 grid grid-cols-1">
+    <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
       {DEPUTIES.map((deputy) => <Card deputy={deputy} />)}
     </div>
   </div>
