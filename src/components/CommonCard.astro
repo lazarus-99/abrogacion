@@ -7,6 +7,7 @@ interface Props {
 }
 
 const { deputy } = Astro.props;
+const supportText = deputy.isSupportive ? "A favor" : "En contra";
 ---
 
 <div
@@ -14,12 +15,11 @@ const { deputy } = Astro.props;
 >
   <a href={`/diputados/${deputy.uri}/`} class="block">
     <OptimizedCover src={deputy.img} alt={deputy.name} />
-    <div class="absolute bottom-0 end-0 start-0 bg-gradient-to-t p-5 md:p-6">
-      <div class="mt-16 flex items-center gap-4 text-xs text-white"></div>
-      <h3 class="mt-2 text-lg font-bold text-white">{deputy.name}</h3>
-      <h3 class="mt-2 text-lg font-bold uppercase text-white">
-        {deputy.isSupportive ? "A favor" : "En contra"}
-      </h3>
+    <div
+      class="md:text-md absolute bottom-0 end-0 start-0 bg-gradient-to-t p-2 text-sm font-bold text-white md:p-4"
+    >
+      <h3>{deputy.name}</h3>
+      <h3 class="uppercase">{supportText}</h3>
     </div>
   </a>
 </div>
