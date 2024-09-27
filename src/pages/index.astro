@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import LinkButton from "@components/LinkButton.astro";
+
 import { SITE_TITLE, SITE_DESCRIPTION } from "@consts";
 ---
 
@@ -12,7 +14,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "@consts";
       <div class="flex flex-col justify-center px-8">
         <h2 class="text-3xl">Bolivia</h2>
         <div class="text-2xl">4 millones de hectáreas consumidas</div>
-        <a href="/abrogacion" class="pt-4">Abrogación</a>
+        <LinkButton class="self-center" href="/abrogacion"
+          >Abrogación</LinkButton
+        >
       </div>
     </div>
   </div>
